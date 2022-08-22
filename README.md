@@ -1,8 +1,9 @@
-# flutter_web1
+# Flutter web
 
 A new Flutter project.
 
 ## Getting Started
+Testeando como realizar proyectos para mobile y web dentro del frameworok flutter
 
 This project is a starting point for a Flutter application.
 
