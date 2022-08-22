@@ -1,34 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter_web1/providers/counter_provider.dart';
 import 'package:flutter_web1/ui/shared/custom_flat_button.dart';
 import 'package:flutter_web1/ui/shared/custom_app_menu.dart';
 
-class CounterProviderPage extends StatefulWidget {
+class CounterProviderPage extends StatelessWidget {
   const CounterProviderPage({super.key});
-
-  @override
-  State<CounterProviderPage> createState() => _CounterProviderPageState();
-}
-
-class _CounterProviderPageState extends State<CounterProviderPage> {
-  int counter = 15;
   @override
   Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+        create: (_) => CounterProvider(), child: _CounterProviderPageBody());
+  }
+}
+
+class _CounterProviderPageBody extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final counterProvider = Provider.of<CounterProvider>(context);
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CustomAppMenu(),
-          const Spacer(),
+          Spacer(),
           //TITULO PAGINA
-          const Text('Contador Provider', style: TextStyle(fontSize: 20)),
+          Text('Contador Provider', style: TextStyle(fontSize: 20)),
           FittedBox(
             fit: BoxFit.contain,
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(horizontal: 10),
               child: Text(
-                'Contador: $counter',
-                style:
-                    const TextStyle(fontSize: 80, fontWeight: FontWeight.bold),
+                'Contador: ${counterProvider.counter}',
+                style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold),
               ),
             ),
           ),
@@ -38,11 +41,13 @@ class _CounterProviderPageState extends State<CounterProviderPage> {
               CustomFlatButton(
                   color: Colors.pink,
                   text: 'Incrementar',
-                  onPressed: () => setState(() => counter++)),
+                  //llamo al counterProvider para incrementar
+                  onPressed: () => counterProvider.increment()),
               CustomFlatButton(
                   color: Colors.pink,
                   text: 'Decrementar',
-                  onPressed: () => setState(() => counter--)),
+                  //llamo al counterProvider para decrementar
+                  onPressed: () => counterProvider.decrement()),
             ],
           ),
           const Spacer(),
