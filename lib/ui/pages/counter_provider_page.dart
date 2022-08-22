@@ -21,7 +21,6 @@ class _CounterProviderPageBody extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          CustomAppMenu(),
           Spacer(),
           //TITULO PAGINA
           Text('Contador Provider', style: TextStyle(fontSize: 20)),

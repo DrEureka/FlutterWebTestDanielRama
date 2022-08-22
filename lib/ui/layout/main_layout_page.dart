@@ -1,10 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web1/ui/shared/custom_app_menu.dart';
 
 class MainLayoutPage extends StatelessWidget {
-  const MainLayoutPage({super.key});
+  final Widget child;
+
+  const MainLayoutPage({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: [
+            CustomAppMenu(),
+            Spacer(),
+            Expanded(child: child),
+            Spacer(),
+          ],
+        ),
+      ),
+    );
   }
 }

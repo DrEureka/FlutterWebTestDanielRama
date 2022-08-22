@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web1/services/navigation_service.dart';
 import 'package:flutter_web1/ui/shared/custom_flat_button.dart';
 
 class CustomAppMenu extends StatelessWidget {
@@ -14,19 +15,22 @@ class CustomAppMenu extends StatelessWidget {
           children: [
             CustomFlatButton(
               text: 'Contador Stateful',
-              onPressed: () => Navigator.pushNamed(context, '/stateful'),
+              //onPressed: () => Navigator.pushNamed(context, '/stateful'),
+              onPressed: () => navitationService.navigateTo('/stateful'),
               color: Colors.black,
             ),
             const SizedBox(width: 10),
             CustomFlatButton(
               text: 'Contador Provider',
-              onPressed: () => Navigator.pushNamed(context, '/provider'),
+              // onPressed: () => Navigator.pushNamed(context, '/provider'),
+              onPressed: () => navitationService.navigateTo('/provider'),
               color: Colors.black,
             ),
             const SizedBox(width: 10),
             CustomFlatButton(
               text: 'Otra pagina',
-              onPressed: () => Navigator.pushNamed(context, '/cualquiercosa'),
+              // onPressed: () => Navigator.pushNamed(context, '/cualquiercosa'),
+              onPressed: () => navitationService.navigateTo('/cualquiercosa'),
               color: Colors.black,
             ),
           ],

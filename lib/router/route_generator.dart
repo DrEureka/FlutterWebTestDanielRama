@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-// ignore: unnecessary_import
 import 'package:flutter/material.dart';
 import 'package:flutter_web1/ui/pages/counter_page.dart';
 import 'package:flutter_web1/ui/pages/counter_provider_page.dart';
@@ -34,7 +33,7 @@ class RouteGenerator {
             : CupertinoPageTransition(
                 primaryRouteAnimation: animation,
                 secondaryRouteAnimation: __,
-                linearTransition: true,
-                child: child));
+                child: child,
+                linearTransition: true));
   }
 }
