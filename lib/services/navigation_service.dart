@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart';
 
-class _NavigationService {
+class NavigationService {
   final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
   Future navigateTo(String routerName) {
@@ -12,5 +12,3 @@ class _NavigationService {
     return navigatorKey.currentState!.pop();
   }
 }
-
-final navitationService = _NavigationService();
