@@ -30,12 +30,6 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.light().copyWith(
         primaryColor: Colors.blue,
         scaffoldBackgroundColor: Colors.white,
-        appBarTheme: AppBarTheme(
-          color: Colors.white,
-          elevation: 0,
-          iconTheme: IconThemeData(color: Colors.black),
-        ),
-        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.blue),
       ),
     );
   }
