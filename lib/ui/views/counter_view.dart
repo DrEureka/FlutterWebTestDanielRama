@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_web1/ui/shared/custom_flat_button.dart';
 
 class CounterView extends StatefulWidget {
-  const CounterView({super.key});
+  const CounterView({super.key, required String title});
 
   @override
   State<CounterView> createState() => _CounterViewState();
