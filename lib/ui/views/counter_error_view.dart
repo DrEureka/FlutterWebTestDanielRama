@@ -12,23 +12,26 @@ class CounterErrorView extends StatefulWidget {
 class _CounterErrorViewState extends State<CounterErrorView> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('404',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
-          const Text('No se encontró la página.',
-              style: TextStyle(fontSize: 20)),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: CustomFlatButton(
-              text: 'Regresar',
-              color: Colors.pink,
-              onPressed: () => Navigator.pushNamed(context, '/stateful'),
+    return Container(
+      color: Colors.white,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('404',
+                style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
+            const Text('No se encontró la página.',
+                style: TextStyle(fontSize: 20)),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: CustomFlatButton(
+                text: 'Regresar',
+                color: Colors.pink,
+                onPressed: () => Navigator.pushNamed(context, '/stateful'),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

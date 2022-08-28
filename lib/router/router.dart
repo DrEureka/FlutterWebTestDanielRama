@@ -1,50 +1,37 @@
-import 'package:flutter_web1/ui/views/counter_view.dart';
+import 'package:flutter_web1/router/route_handlers.dart';
 import 'package:fluro/fluro.dart';
-import '../ui/views/counter_error_view.dart';
-import '../ui/views/counter_provider_view.dart';
 
 class Flurorouter {
   static final FluroRouter router = FluroRouter();
 
   static void configureRoutes() {
-    router.define('/', handler: _counterStatefulHandler);
-
+    router.define('/', handler: counterStatefulHandler);
+    //Stateful Routes--------------------------------------------------------------
     router.define('/stateful',
-        handler: _counterStatefulHandler,
+        handler: counterStatefulHandler,
         transitionDuration: Duration(milliseconds: 100),
         transitionType: TransitionType.fadeIn);
 
     router.define('/stateful/:base',
-        handler: _counterStatefulHandler,
+        handler: counterStatefulHandler,
         transitionDuration: Duration(milliseconds: 100),
         transitionType: TransitionType.fadeIn);
-    //definir ruta provider
+    //Provider Routes--------------------------------------------------------------
     router.define(
       '/provider',
-      handler: _counterProviderHandler,
+      handler: counterProviderHandler,
       transitionDuration: Duration(milliseconds: 100),
       transitionType: TransitionType.fadeIn,
     );
 
-    //ruta 404
-    router.notFoundHandler = _notFoundHandler;
+    router.define(
+      '/dashboard/users/:userid/:roleid',
+      handler: dashboardUserHandler,
+      transitionDuration: Duration(milliseconds: 100),
+      transitionType: TransitionType.fadeIn,
+    );
+
+    //Error 404 Route--------------------------------------------------------------
+    router.notFoundHandler = notFoundHandler;
   }
-
-//manejadores o handlers
-//Le paso parametros por URL
-  static Handler _counterStatefulHandler = Handler(
-    handlerFunc: (context, params) {
-      // print(params['base']?[0]);
-      return CounterView(base: params['base']?[0] ?? '5');
-    },
-  );
-
-  static Handler _counterProviderHandler =
-      Handler(handlerFunc: (contex, params) {
-    print(params);
-    return CounterProviderView(base: params['q']?[0] ?? '10');
-  });
-
-  static Handler _notFoundHandler =
-      Handler(handlerFunc: (context, params) => CounterErrorView());
 }
