@@ -4,11 +4,15 @@ import 'package:flutter_web1/providers/counter_provider.dart';
 import 'package:flutter_web1/ui/shared/custom_flat_button.dart';
 
 class CounterProviderView extends StatelessWidget {
-  const CounterProviderView({super.key});
+  final String base;
+
+  const CounterProviderView({super.key, required this.base});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (_) => CounterProvider(), child: _CounterProviderPageBody());
+        create: (_) => CounterProvider(this.base),
+        child: _CounterProviderPageBody());
   }
 }
 

@@ -13,7 +13,7 @@ class RouteGenerator {
         return _fadeRoute(CounterPage(), '/stateful');
 
       case '/provider':
-        return _fadeRoute(CounterProviderPage(), '/provider');
+        return _fadeRoute(CounterProviderPage(base: '5'), '/provider');
       default:
         return _fadeRoute(CounterErrorPage(), '/404');
     }

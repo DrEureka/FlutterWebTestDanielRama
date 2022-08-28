@@ -5,11 +5,14 @@ import 'package:flutter_web1/ui/shared/custom_flat_button.dart';
 import 'package:flutter_web1/ui/shared/custom_app_menu.dart';
 
 class CounterProviderPage extends StatelessWidget {
-  const CounterProviderPage({super.key});
+  final String base;
+
+  const CounterProviderPage({super.key, required this.base});
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-        create: (_) => CounterProvider(), child: _CounterProviderPageBody());
+        create: (_) => CounterProvider(this.base),
+        child: _CounterProviderPageBody());
   }
 }
 

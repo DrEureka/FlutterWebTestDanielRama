@@ -40,7 +40,10 @@ class Flurorouter {
   );
 
   static Handler _counterProviderHandler =
-      Handler(handlerFunc: (contex, params) => CounterProviderView());
+      Handler(handlerFunc: (contex, params) {
+    print(params);
+    return CounterProviderView(base: params['q']?[0] ?? '10');
+  });
 
   static Handler _notFoundHandler =
       Handler(handlerFunc: (context, params) => CounterErrorView());

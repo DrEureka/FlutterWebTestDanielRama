@@ -52,6 +52,14 @@ class _TableDesktopMenu extends StatelessWidget {
                   locator<NavigationService>().navigateTo('/stateful/100'),
               color: Colors.black,
             ),
+            SizedBox(width: 10),
+            CustomFlatButton(
+              text: 'Provider 200',
+              // onPressed: () => Navigator.pushNamed(context, '/stateful/100'),
+              onPressed: () =>
+                  locator<NavigationService>().navigateTo('/provider?q=200'),
+              color: Colors.black,
+            ),
           ],
         ));
   }
@@ -95,6 +103,14 @@ class _MobileMenu extends StatelessWidget {
               // onPressed: () => Navigator.pushNamed(context, '/stateful/100'),
               onPressed: () =>
                   locator<NavigationService>().navigateTo('/stateful/100'),
+              color: Colors.black,
+            ),
+            SizedBox(width: 10),
+            CustomFlatButton(
+              text: 'Provider 200',
+              // onPressed: () => Navigator.pushNamed(context, '/stateful/100'),
+              onPressed: () =>
+                  locator<NavigationService>().navigateTo('/provider?q=200'),
               color: Colors.black,
             ),
           ],
